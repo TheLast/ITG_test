@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { CustomThemeProvider as ThemeProvider } from './styled-config/ThemeProvider';
 import VehicleList from './components/VehicleList';
-import './global-styles.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <VehicleList />
+    <ThemeProvider>
+      <VehicleList />
+    </ThemeProvider>
   </React.StrictMode>,
-  document.querySelector('.root')
+  document.getElementById('root')
 );

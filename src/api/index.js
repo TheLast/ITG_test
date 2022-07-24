@@ -1,12 +1,29 @@
 // eslint-disable-next-line no-unused-vars
-import { request } from './helpers';
+import { request, filterResponse } from './helpers';
 
 /**
  * Pull vehicles information
  *
  * @return {Promise<Array.<vehicleSummaryPayload>>}
  */
-// TODO: All API related logic should be made inside this function.
+
 export default async function getData() {
-  return [];
+  try {
+    // @TODO: refactor into separate?
+    // @TODO: add tests
+    const vehiclesGeneralData = await request('/api/vehicles.json');
+    const vehicleDetailsApiCall = vehiclesGeneralData.map((item) => request(item.apiUrl));
+    const vehicleDetailsAll = await Promise.allSettled(vehicleDetailsApiCall);
+    const vehicleFilteredDetails = vehicleDetailsAll.filter((item) => filterResponse(item)).map((item) => item.value);
+    const vehiclesTrimmedApiUrl = vehiclesGeneralData.map(({ apiUrl, ...rest }) => rest);
+    const vehicleDetailsCombined = vehicleFilteredDetails.map(({ apiUrl, ...rest }) => rest).map((item) => {
+      return {
+        ...item,
+        ...vehiclesTrimmedApiUrl.find((vehicle) => vehicle.id === item.id)
+      };
+    });
+    return Promise.resolve(vehicleDetailsCombined);
+  } catch (error) {
+    return Promise.reject(error);
+  }
 }
