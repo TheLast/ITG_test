@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import {
-  space, color, layout,
+  compose, space, color, layout, border
 } from 'styled-system';
 
-export const Box = styled('div')(
-  space, color, layout
+const styleProps = compose(
+  space, color, layout, border
 );
+
+export const Box = styled('div')(styleProps);

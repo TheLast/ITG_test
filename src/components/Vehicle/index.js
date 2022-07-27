@@ -1,12 +1,17 @@
 import React from 'react';
+import { theme } from '../../styled-config/theme';
 import { PictureWrapper, VehicleTitle } from './Vehicle.styled';
-import { Box, Flex, Text } from '../../styled-framework/index';
+import { Flex, Text } from '../../styled-framework/index';
 
 export function Vehicle({
   id, price, description, media
 }) {
   return (
-    <Flex flexDirection={['row', 'column']}>
+    <Flex
+      flexDirection={['row', 'column']}
+      borderBottom={[`1px solid ${theme.colors.light}`]}
+      borderLeft={['unset', `1px solid ${theme.colors.light}`]}
+    >
       <Flex flex={['0 0 180px', '0 1 auto']}>
         <PictureWrapper>
           <source srcSet={media[0].url} media="(min-width: 40rem)" />

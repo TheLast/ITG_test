@@ -9,8 +9,6 @@ import { request, filterResponse } from './helpers';
 
 export default async function getData() {
   try {
-    // @TODO: refactor into separate?
-
     const vehiclesGeneralData = await request('/api/vehicles.json');
     const vehicleDetailsApiCall = vehiclesGeneralData.map((item) => request(item.apiUrl));
     const vehicleDetailsAll = await Promise.allSettled(vehicleDetailsApiCall);

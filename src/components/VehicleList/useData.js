@@ -13,8 +13,6 @@ export default function useData() {
       .finally(() => setLoading(false));
   }, []);
 
-  console.log(vehicles);
-
   return [
     loading,
     error,

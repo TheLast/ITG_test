@@ -3,7 +3,8 @@ import useData from './useData';
 import { Vehicle } from '../Vehicle/index';
 import { Container } from './VehicleList.styled';
 
-// @TODO: remove after testing
+const isDebug = false;
+
 const Footer = () => (
   <div>
     <p>
@@ -30,8 +31,6 @@ const Footer = () => (
 export default function VehicleList() {
   // eslint-disable-next-line no-unused-vars
   const [loading, error, vehicles] = useData();
-
-  console.log('vehicles', vehicles);
 
   if (loading) {
     return <div data-testid="loading">Loading</div>;
@@ -60,7 +59,7 @@ export default function VehicleList() {
         })}
       </Container>
 
-      <Footer />
+      {isDebug && <Footer />}
     </div>
   );
 }

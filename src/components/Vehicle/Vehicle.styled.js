@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Box, Flex, Text } from '../../styled-framework/index';
+import { Text } from '../../styled-framework/index';
 
 export const PictureWrapper = styled.picture`
   img {
