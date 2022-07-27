@@ -4,11 +4,9 @@
  * @param {string} apiUrl
  * @return {Promise<Object>}
  */
-export async function request(apiUrl) {
-  return fetch(apiUrl)
-    .then((response) => response.json())
-    .catch((error) => Promise.reject(error));
-}
+export const request = async (apiUrl) => fetch(apiUrl)
+  .then((response) => response.json())
+  .catch((error) => Promise.reject(error));
 
 /**
  * A utility function to filter vehicales based on params.

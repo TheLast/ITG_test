@@ -1,5 +1,5 @@
 import React from 'react';
-import { PictureWrapper } from './Vehicle.styled';
+import { PictureWrapper, VehicleTitle } from './Vehicle.styled';
 import { Box, Flex, Text } from '../../styled-framework/index';
 
 export function Vehicle({
@@ -7,16 +7,16 @@ export function Vehicle({
 }) {
   return (
     <Flex flexDirection={['row', 'column']}>
-      <Flex flex="0 0 180px">
+      <Flex flex={['0 0 180px', '0 1 auto']}>
         <PictureWrapper>
           <source srcSet={media[0].url} media="(min-width: 40rem)" />
           <img src={media[1].url} alt={`${id} ${media[1].name}`} />
         </PictureWrapper>
       </Flex>
-      <Flex flexDirection="column" alignSelf="flex-start" p={4}>
-        <Text as="h2" my="0" fontSize="5">{id}</Text>
-        <Text as="p" mt="1" mb="2">{price}</Text>
-        <Text as="p" my="0">{description}</Text>
+      <Flex flexDirection="column" alignItems={['flex-start', 'center']} p={[4, 2]}>
+        <VehicleTitle as="h2" my={[0, 3]}>{id}</VehicleTitle>
+        <Text as="p" fontSize={[2, 1]} mt="1" mb={[2, 2]}>{`From ${price}`}</Text>
+        <Text as="p" fontSize={[1, 2]} my={[2, 1]} textAlign={['left', 'center']}>{description}</Text>
       </Flex>
     </Flex>
   );

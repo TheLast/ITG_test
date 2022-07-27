@@ -48,7 +48,6 @@ export default function VehicleList() {
           const {
             id, price, description, media, modelYear
           } = props;
-          console.log(id);
           return (
             <Vehicle
               key={`${id}-${modelYear}`}
