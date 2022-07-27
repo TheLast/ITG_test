@@ -25,4 +25,4 @@ npm install && npm start
 
 ## Nice to have
 
-Basically, there are a lot of things I would love to fix, imporove and add. Unfortunately could spend more time, and will be glad to discuss it on an interview
+Basically, there are a lot of things I would love to fix, improve and add. Unfortunately could not spend more timeon it and will be glad to discuss it on an interview
