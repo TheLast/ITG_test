@@ -26,3 +26,9 @@ npm install && npm start
 ## Nice to have
 
 Basically, there are a lot of things I would love to fix, improve and add. Unfortunately could not spend more timeon it and will be glad to discuss it on an interview
+
+-   Typescript
+-   Redux or Context API
+-   Animations
+-   Better tests
+-   ErrorBoundary
