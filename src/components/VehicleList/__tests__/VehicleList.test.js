@@ -1,7 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../../../styled-config/theme';
 import VehicleList from '..';
 import useData from '../useData';
+import { results } from '../../../__mocks__/vehicleListMock';
 
 jest.mock('../useData');
 
@@ -25,8 +28,8 @@ describe('<VehicleList /> Tests', () => {
   });
 
   it('Should show results if loading successfully finished', () => {
-    useData.mockReturnValue([false, false, 'results']);
-    const { queryByTestId } = render(<VehicleList />);
+    useData.mockReturnValue([false, false, results]);
+    const { queryByTestId } = render(<ThemeProvider theme={theme}><VehicleList /></ThemeProvider>);
 
     expect(queryByTestId('loading')).toBeNull();
     expect(queryByTestId('error')).toBeNull();

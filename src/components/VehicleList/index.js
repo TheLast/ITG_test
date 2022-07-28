@@ -31,6 +31,7 @@ const Footer = () => (
 export default function VehicleList() {
   // eslint-disable-next-line no-unused-vars
   const [loading, error, vehicles] = useData();
+  console.log('vehicles', vehicles);
 
   if (loading) {
     return <div data-testid="loading">Loading</div>;
